@@ -1,0 +1,110 @@
+.index{
+	background-size: cover;
+	backdrop-filter: blur(20px);
+	padding-top: 5%;
+	padding-bottom: 20%;
+	animation: 1s 1 classic3;
+}
+.index img{
+	width: 30%;
+	animation: 5s 1 classic;
+}
+.index .nav{
+	width: 100%;
+	margin-top: 2%;
+}
+.nav-item{
+	transition: 1s;
+	width: 30%;
+	margin: 2%;
+	animation: 5s 1 classic;
+}
+.nav-item:hover{
+	transform: 1s;
+	margin-top: 0%;
+	cursor: pointer;
+}
+.nav-item h1{
+	text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+	animation: 3s 1 classic2;
+	margin-top: 0%;
+}
+@keyframes classic{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 100;
+	}
+}
+@keyframes classic2{
+	0%{
+		margin-top: 10%;
+	}
+	10%{
+		margin-top: 0%;
+	}
+}
+@keyframes classic3{
+	0%{
+		filter: blur(10px);
+	}
+	100%{
+		filter: blur(4px);
+	}
+}
+@keyframes classic4{
+	0%{
+		filter: blur(20px);
+	}
+	100%{
+		filter: blur(0px);
+	}
+}
+@keyframes classic8{
+	0%{
+		margin-top: 2%;
+		margin-bottom: -2%;
+	}
+	50%{
+		margin-top: 0%;
+		margin-bottom: 0%;
+	}
+	100%{
+		margin-top: 2%;
+		margin-bottom: -2%;
+	}
+}
+.playercount {
+	display: inline-block;
+	margin: 20px 15px 0 15px;
+	background-color: rgba(15, 199, 209, 0.75);
+	font-size: 1em;
+	color: white;
+	text-align: center;
+	border-radius: 5px 0 5px 0;
+	line-height: 27px;
+	padding: 1% 5% 0% 5%;
+	-webkit-box-shadow: 0px 0px 22px 6px #000000; 
+box-shadow: 0px 0px 22px 6px #000000;
+	animation: 4s 1 classic4;
+}
+
+.playercount > p > span {
+	font-weight: bold;
+	padding: 1px 4px;
+	border-radius: 3px;
+	background: rgba(9, 150, 158, 0.7);
+	margin: 0 2px;
+}
