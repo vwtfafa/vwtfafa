@@ -8,6 +8,7 @@ const urlsToCache = [
     '/minigame.html',
     '/minigame_en.html',
     '/assets/css/styles.css',
+    '/assets/js/scripts.js',
     '/assets/images/icon-192x192.png',
     '/assets/images/icon-512x512.png',
     '/manifest.json'

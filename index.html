@@ -10,42 +10,37 @@
 </head>
 <body>
     <header>
-        <!-- Navbar Component -->
-        <div id="navbar-placeholder"></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">Über Uns</a>
+            <a href="minigame.html">Mini-Spiele</a>
+        </nav>
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+            </select>
+        </div>
     </header>
 
     <main>
-        <!-- Dynamic Content Loading -->
-        <div id="content-placeholder"></div>
+        <h1>Willkommen auf unserer schönen Website</h1>
+        <p>Hier finden Sie interaktive Diagramme, dynamische Inhalte und vieles mehr.</p>
     </main>
 
     <footer>
-        <!-- Footer Component -->
-        <div id="footer-placeholder"></div>
+        <p>&copy; 2025 Schöne Website. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <canvas id="neon-canvas"></canvas>
-
     <script>
-        async function loadComponents() {
-            try {
-                const navbarResponse = await fetch('components/navbar.html');
-                if (!navbarResponse.ok) throw new Error('Navbar component not found');
-                document.getElementById('navbar-placeholder').innerHTML = await navbarResponse.text();
-
-                const footerResponse = await fetch('components/footer.html');
-                if (!footerResponse.ok) throw new Error('Footer component not found');
-                document.getElementById('footer-placeholder').innerHTML = await footerResponse.text();
-
-                const contentResponse = await fetch('components/content-cards.html');
-                if (!contentResponse.ok) throw new Error('Content cards component not found');
-                document.getElementById('content-placeholder').innerHTML = await contentResponse.text();
-            } catch (error) {
-                console.error('Error loading components:', error);
+        function changeLanguage() {
+            const language = document.getElementById('languageSelect').value;
+            if (language === 'en') {
+                window.location.href = 'index_en.html';
+            } else {
+                window.location.href = 'index.html';
             }
         }
-
-        loadComponents();
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
