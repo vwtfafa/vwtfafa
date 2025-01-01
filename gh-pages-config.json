@@ -1,7 +1,6 @@
 {
-    "source": {
-      "branch": "master",
-      "path": "/src"
-    }
+  "source": {
+    "branch": "master",
+    "path": "/src"
   }
-  
+}
