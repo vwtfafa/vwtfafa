@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrieren</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navbar Component -->
+        <div id="navbar-placeholder"></div>
+    </header>
+
+    <main>
+        <div class="register-container">
+            <h1>Registrieren</h1>
+            <form id="registerForm">
+                <label for="username">Benutzername:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Passwort:</label>
+                <input type="password" id="password" name="password" required>
+                <label for="confirmPassword">Passwort bestätigen:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <button type="submit">Registrieren</button>
+            </form>
+            <p>Bereits ein Konto? <a href="login.html">Login</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer Component -->
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <script>
+        async function loadComponents() {
+            try {
+                const navbarResponse = await fetch('components/navbar.html');
+                if (!navbarResponse.ok) throw new Error('Navbar component not found');
+                document.getElementById('navbar-placeholder').innerHTML = await navbarResponse.text();
+
+                const footerResponse = await fetch('components/footer.html');
+                if (!footerResponse.ok) throw new Error('Footer component not found');
+                document.getElementById('footer-placeholder').innerHTML = await footerResponse.text();
+            } catch (error) {
+                console.error('Error loading components:', error);
+            }
+        }
+
+        loadComponents();
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Handle registration logic here
+            alert('Registrierung erfolgreich!');
+        });
+    </script>
+</body>
+</html>
