@@ -4,12 +4,41 @@ body {
     font-family: 'Press Start 2P', cursive;
     background: #222;
     color: white;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
     flex-direction: column;
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #pauseButton {
+        top: 5px;
+        right: 5px;
+        padding: 5px;
+    }
+
+    #gameOverScreen {
+        width: 90%;
+        padding: 10px;
+    }
 }
 
 h1, h2 {
@@ -82,11 +111,11 @@ button:hover {
     background: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
-    display: none;
+    border-radius: 10px;
 }
-
 #gameOverScreen button {
     background-color: #FF4500;
     color: white;
     border-radius: 5px;
 }
+/* Add your CSS code here */

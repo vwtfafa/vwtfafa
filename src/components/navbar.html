@@ -9,15 +9,14 @@
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="about.html">Über Uns</a>
         <a href="minigame.html">Mini-Spiele</a>
+        <a href="about.html">Über Uns</a>
         <a href="login.html">Login</a>
         <a href="register.html">Registrieren</a>
-            <!-- ...existing navbar content... -->
-            <select id="language-selector">
-                <option value="de">Deutsch (Beta)</option>
-                <option value="en">English (beta)</option>
-            </select>
+        <select id="language-selector" onchange="changeLanguage(this.value)">
+            <option value="de">Deutsch (Beta)</option>
+            <option value="en">English (Beta)</option>
+        </select>
     </nav>
     <script src="../assets/js/scripts.js"></script>
 </body>
