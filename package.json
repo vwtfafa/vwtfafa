@@ -1,0 +1,27 @@
+{
+  "name": "beautiful-website",
+  "version": "1.0.0",
+  "description": "A minimalist and clean website with modern UI/UX design and interactive features.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined'",
+    "test": "echo 'No tests defined'"
+  },
+  "keywords": [
+    "website",
+    "minimalist",
+    "UI/UX",
+    "interactive",
+    "responsive"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^3.7.0",
+    "d3": "^7.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
