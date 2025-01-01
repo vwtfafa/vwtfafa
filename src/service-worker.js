@@ -1,5 +1,3 @@
-website/src/service-worker.js
-
 const CACHE_NAME = 'beautiful-website-cache-v1';
 const urlsToCache = [
     '/',
