@@ -1,6 +1,6 @@
 website/src/service-worker.js
 
-const CACHE_NAME = 'beautiful-website-cache-v1';
+const CACHE_NAME = 'vwtfafa';
 const urlsToCache = [
     '/',
     '/index.html',
