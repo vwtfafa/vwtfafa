@@ -4,8 +4,11 @@ const CACHE_NAME = 'beautiful-website-cache-v1';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/index_en.html',
     '/about.html',
+    '/about_en.html',
     '/minigame.html',
+    '/minigame_en.html',
     '/assets/css/styles.css',
     '/assets/images/icon-192x192.png',
     '/assets/images/icon-512x512.png',
