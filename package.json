@@ -1,6 +1,6 @@
 {
-  "name": "beautiful-website",
-  "version": "1.0.0",
+  "name": "my website",
+  "version": "2.0.0",
   "description": "A minimalist and clean website with modern UI/UX design and interactive features.",
   "main": "src/index.html",
   "scripts": {
