@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über Uns</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- Navbar Component -->
+        <div id="navbar-placeholder"></div>
+    </header>
+
+    <main>
+        <div class="about-container">
+            <h1>Über Uns</h1>
+            <p>Willkommen auf unserer schönen Website. Hier finden Sie interaktive Diagramme, dynamische Inhalte und vieles mehr.</p>
+            <p>Unsere Mission ist es, das beste Benutzererlebnis mit einem modernen und sauberen Design zu bieten. Wir konzentrieren uns darauf, hochwertige Inhalte und interaktive Funktionen bereitzustellen, die unsere Benutzer ansprechen.</p>
+            <p>Unser Team ist bestrebt, die Website kontinuierlich zu verbessern und neue Funktionen hinzuzufügen, um unsere Benutzer zufrieden zu stellen. Vielen Dank für Ihren Besuch auf unserer Website!</p>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer Component -->
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <script>
+        async function loadComponents() {
+            try {
+                console.log('Fetching navbar...');
+                const navbarResponse = await fetch('components/navbar.html');
+                if (!navbarResponse.ok) throw new Error('Navbar component not found');
+                document.getElementById('navbar-placeholder').innerHTML = await navbarResponse.text();
+                console.log('Navbar loaded.');
+
+                console.log('Fetching footer...');
+                const footerResponse = await fetch('components/footer.html');
+                if (!footerResponse.ok) throw new Error('Footer component not found');
+                document.getElementById('footer-placeholder').innerHTML = await footerResponse.text();
+                console.log('Footer loaded.');
+            } catch (error) {
+                console.error('Error loading components:', error);
+            }
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Website</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/scripts.js" defer></script>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <!-- Navbar Component -->
+        <div id="navbar-placeholder"></div>
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <!-- Dynamic Content Loading -->
+        <div id="content-placeholder"></div>
+    </main>
+
+    <footer>
+        <!-- Footer Component -->
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <canvas id="neon-canvas"></canvas>
+
+    <script>
+        async function loadComponents() {
+            try {
+                const navbarResponse = await fetch('components/navbar_en.html');
+                if (!navbarResponse.ok) throw new Error('Navbar component not found');
+                document.getElementById('navbar-placeholder').innerHTML = await navbarResponse.text();
+
+                const footerResponse = await fetch('components/footer.html');
+                if (!footerResponse.ok) throw new Error('Footer component not found');
+                document.getElementById('footer-placeholder').innerHTML = await footerResponse.text();
+
+                const contentResponse = await fetch('components/content-cards_en.html');
+                if (!contentResponse.ok) throw new Error('Content cards component not found');
+                document.getElementById('content-placeholder').innerHTML = await contentResponse.text();
+            } catch (error) {
+                console.error('Error loading components:', error);
+            }
+        }
+
+        loadComponents();
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+
+        function changeLanguage() {
+            const language = document.getElementById('languageSelect').value;
+            if (language === 'de') {
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = 'index_en.html';
+            }
+        }
+    </script>
+</body>
+</html>
