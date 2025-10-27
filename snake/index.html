@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Spiel</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Startscreen -->
+        <div id="startScreen">
+            <h1>Snake Spiel</h1>
+            <input type="text" id="playerNameInput" placeholder="Dein Name">
+            <button onclick="startGame()">Spiel starten</button>
+        </div>
+
+        <!-- Spielfeld -->
+        <canvas id="gameCanvas" width="400" height="400" style="display: none;"></canvas>
+
+        <!-- Punktanzeige -->
+        <div id="playerScore" style="display: none;">Punkte: 0</div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" style="display: none;">
+            <h1>Spiel Vorbei!</h1>
+            <button onclick="restartGame()">Neustarten</button>
+        </div>
+
+        <!-- Pause Button -->
+        <button id="pauseButton" style="display: none;" onclick="togglePause()">Pause</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
