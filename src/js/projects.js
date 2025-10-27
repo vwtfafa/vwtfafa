@@ -1,3 +1,6 @@
+// Import projects data
+import projects from '../data/projects.js';
+
 // Global variables
 let allProjects = [];
 let currentFilter = 'all';
@@ -169,28 +172,28 @@ function showProjectDetails(projectId) {
 }
 
 // Close modal
-function closeModal() {
-    document.body.style.overflow = 'auto';
+window.closeModal = function() {
     modal.classList.add('hidden');
     modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
 }
 
 // Filter projects by status
-function filterProjects(status) {
+window.filterProjects = function(status) {
     currentFilter = status;
     renderProjects();
     
     // Update active filter button
-    document.querySelectorAll('#projects-container ~ div button').forEach(btn => {
-        btn.classList.remove('bg-indigo-600', 'text-white');
-        btn.classList.add('bg-gray-700', 'text-gray-200');
+    document.querySelectorAll('#projects button').forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(status) || 
+            (status === 'all' && btn.textContent.toLowerCase().includes('all'))) {
+            btn.classList.remove('bg-gray-700');
+            btn.classList.add('bg-indigo-600');
+        } else {
+            btn.classList.remove('bg-indigo-600');
+            btn.classList.add('bg-gray-700');
+        }
     });
-    
-    const activeBtn = document.querySelector(`button[onclick="filterProjects('${status}')"]`);
-    if (activeBtn) {
-        activeBtn.classList.remove('bg-gray-700', 'text-gray-200');
-        activeBtn.classList.add('bg-indigo-600', 'text-white');
-    }
 }
 
 // Filter projects by type
