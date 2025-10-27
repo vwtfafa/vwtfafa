@@ -265,6 +265,10 @@ function showProjectDetails(projectId) {
                             ${project.versions.slice(0, 5).map(version => {
                                 // Extract Minecraft versions from game_versions array
                                 const minecraftVersions = version.game_versions ? version.game_versions.join(', ') : 'N/A';
+                                const firstVersion = version.game_versions && version.game_versions.length > 0 
+                                    ? version.game_versions[0] + 
+                                      (version.game_versions.length > 1 ? ` +${version.game_versions.length - 1}` : '')
+                                    : 'N/A';
                                 
                                 return `
                                 <tr>
@@ -272,10 +276,7 @@ function showProjectDetails(projectId) {
                                         ${version.version_number}
                                     </td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-300" title="${minecraftVersions}">
-                                        ${version.game_versions && version.game_versions.length > 0 
-                                            ? version.game_versions[0] + 
-                                              (version.game_versions.length > 1 ? ` +${version.game_versions.length - 1}` : '')
-                                            : 'N/A'}
+                                        ${firstVersion}
                                     </td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-300">
                                         <span class="px-2 py-1 text-xs rounded-full ${

@@ -2,27 +2,28 @@
     "name": "Minecraft Projects",
     "short_name": "MC Projects",
     "description": "Showcase of Minecraft mods and resource packs",
-    "start_url": "/",
+    "start_url": "/vwtfafa/",
+    "scope": "/vwtfafa/",
     "display": "standalone",
-    "background_color": "#111827",
+    "background_color": "#1f2937",
     "theme_color": "#4F46E5",
     "orientation": "portrait",
     "categories": ["games", "entertainment"],
     "icons": [
         {
-            "src": "/assets/images/icon-192x192.png",
+            "src": "/vwtfafa/assets/images/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/images/icon-512x512.png",
+            "src": "/vwtfafa/assets/images/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/images/icon-144x144.png",
+            "src": "/vwtfafa/assets/images/icon-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }
