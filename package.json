@@ -1,19 +1,20 @@
 {
-  "name": "beautiful-website",
+  "name": "vwtfafa-minecraft-projects",
   "version": "1.0.0",
-  "description": "A minimalist and clean website with modern UI/UX design and interactive features.",
+  "description": "Showcase of Minecraft projects by vwtfafa",
   "main": "src/index.html",
+  "type": "module",
   "scripts": {
     "start": "live-server src",
     "build": "echo 'Build process not defined'",
     "test": "echo 'No tests defined'"
   },
   "keywords": [
-    "website",
-    "minimalist",
-    "UI/UX",
-    "interactive",
-    "responsive"
+    "minecraft",
+    "mods",
+    "modrinth",
+    "showcase",
+    "portfolio"
   ],
   "author": "vwtfafa",
   "license": "MIT",
