@@ -1,16 +1,38 @@
-website/src/service-worker.js
-
-const CACHE_NAME = 'beautiful-website-cache-v1';
+const CACHE_NAME = 'minecraft-projects-cache-v1';
 const urlsToCache = [
     '/',
     '/index.html',
-    '/about.html',
+    '/index_en.html',
+    '/login.html',
+    '/register.html',
     '/minigame.html',
-    '/assets/css/styles.css',
-    '/assets/images/icon-192x192.png',
-    '/assets/images/icon-512x512.png',
-    '/manifest.json'
+    '/about.html',
+    '/manifest.json',
+    '/service-worker.js',
+    '/src/data/projects.js',
+    '/src/js/main.js',
+    '/components/minecraft-projects.html',
+    'https://cdn.tailwindcss.com',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
 ];
+
+// Cache strategy: Cache First, then Network
+const cacheFirst = async (request) => {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) return cachedResponse;
+    
+    const networkResponse = await fetch(request);
+    if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+        return networkResponse;
+    }
+    
+    const responseToCache = networkResponse.clone();
+    const cache = await caches.open(CACHE_NAME);
+    cache.put(request, responseToCache);
+    
+    return networkResponse;
+};
 
 self.addEventListener('install', event => {
     event.waitUntil(

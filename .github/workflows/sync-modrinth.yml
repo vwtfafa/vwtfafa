@@ -1,0 +1,49 @@
+name: Sync Modrinth Projects
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN || github.token }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        working-directory: ./
+        run: |
+          npm init -y
+          npm install node-fetch@2
+          echo '{"type": "module"}' > .github/scripts/package.json
+
+      - name: Sync Modrinth projects
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          GH_EMAIL: ${{ github.actor }}@users.noreply.github.com
+          GH_NAME: GitHub Actions
+        run: |
+          node .github/scripts/sync-modrinth.js
+
+      - name: Commit and push changes
+        if: github.event_name == 'schedule' || github.event.inputs.force == 'true'
+        run: |
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          git add src/data/projects.js
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "🔧 Auto-update projects from Modrinth [skip ci]" &&
+            git push
+          )

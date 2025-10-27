@@ -15,9 +15,10 @@
     "interactive",
     "responsive"
   ],
-  "author": "Your Name",
+  "author": "vwtfafa",
   "license": "MIT",
   "dependencies": {
+    "node-fetch": "^2.6.7",
     "chart.js": "^3.7.0",
     "d3": "^7.0.0"
   },
