@@ -22,16 +22,11 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
 
-      - name: Set up Node.js environment
+      - name: Install dependencies
         working-directory: ./
         run: |
-          # Create package.json if it doesn't exist
-          if [ ! -f package.json ]; then
-            echo '{"name": "vwtfafa-projects", "version": "1.0.0", "type": "module"}' > package.json
-          fi
-          # Install dependencies
-          npm install node-fetch@2
-          # Create a package.json in the scripts directory
+          npm ci  # Install dependencies from package-lock.json
+          # Create a package.json in the scripts directory for ES modules
           mkdir -p .github/scripts
           echo '{"type": "module"}' > .github/scripts/package.json
 
