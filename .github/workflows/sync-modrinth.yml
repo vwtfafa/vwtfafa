@@ -25,10 +25,17 @@ jobs:
       - name: Install dependencies
         working-directory: ./
         run: |
-          npm ci  # Install dependencies from package-lock.json
-          # Create a package.json in the scripts directory for ES modules
+          # Ensure we have a package.json in the scripts directory
           mkdir -p .github/scripts
-          echo '{"type": "module"}' > .github/scripts/package.json
+          if [ ! -f .github/scripts/package.json ]; then
+            echo '{"type": "module"}' > .github/scripts/package.json
+          fi
+          
+          # Install dependencies
+          npm ci  # Install dependencies from package-lock.json
+          
+          # Verify node-fetch is installed
+          npm list node-fetch || npm install node-fetch@2
 
       - name: Sync Modrinth projects
         env:
