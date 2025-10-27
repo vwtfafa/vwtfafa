@@ -139,6 +139,6 @@ export default projects;`;
     process.exit(1);
   }
 }
-{{ ... }}
+
 // Run the sync
 syncModrinthProjects();
