@@ -292,8 +292,7 @@ function showProjectDetails(projectId) {
                                         ${version.downloads ? version.downloads.toLocaleString() : 'N/A'}
                                     </td>
                                 </tr>`;
-                            }).join('')
-                            `).join('')}
+                            }).join('')}
                         </tbody>
                     </table>
                 </div>
